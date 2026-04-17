@@ -1,16 +1,20 @@
 {
-  "name": "hidden-sunset-1e0b",
+  "name": "cf-qrcode-gen-api",
   "type": "module",
   "scripts": {
     "dev": "wrangler dev",
-    "deploy": "wrangler deploy --minify",
+    "deploy": "npm run cf-typegen && wrangler deploy --minify",
     "cf-typegen": "wrangler types --env-interface CloudflareBindings"
   },
   "dependencies": {
-    "hono": "^4.12.14"
+    "@hono/zod-validator": "^0.7.6",
+    "hono": "^4.12.14",
+    "qrcode-svg": "^1.1.0",
+    "zod": "^4.3.6"
   },
   "devDependencies": {
     "@types/node": "^25.6.0",
+    "@types/qrcode-svg": "^1.1.5",
     "wrangler": "^4.83.0"
   }
 }

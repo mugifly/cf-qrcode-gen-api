@@ -1,21 +1,30 @@
-```txt
+# cf-qrcode-gen-api
+
+A fast, lightweight QR code generation API built with [Cloudflare Workers](https://workers.cloudflare.com/) and [Hono](https://hono.dev/).
+
+## Usage
+
+```
+GET /qrcode.svg?text=<text>[&px=300][&qrcolor=000000][&bgcolor=ffffff]
+```
+
+| Parameter | Description                                  | Default  |
+| --------- | -------------------------------------------- | -------- |
+| `text`    | Content to encode (required, max 2048 chars) | —        |
+| `px`      | Image size in pixels (10–2048)               | `300`    |
+| `qrcolor` | Foreground color as 6-digit hex              | `000000` |
+| `bgcolor` | Background color as 6-digit hex              | `ffffff` |
+
+**Example:**
+
+```
+GET /qrcode.svg?text=https://example.com&px=300&qrcolor=000000&bgcolor=ffffff
+```
+
+## Development
+
+```sh
 npm install
-npm run dev
-```
-
-```txt
-npm run deploy
-```
-
-[For generating/synchronizing types based on your Worker configuration run](https://developers.cloudflare.com/workers/wrangler/commands/#types):
-
-```txt
-npm run cf-typegen
-```
-
-Pass the `CloudflareBindings` as generics when instantiation `Hono`:
-
-```ts
-// src/index.ts
-const app = new Hono<{ Bindings: CloudflareBindings }>()
+npm run dev       # Start local dev server
+npm run deploy    # Deploy to Cloudflare Workers
 ```
