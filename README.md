@@ -2,6 +2,10 @@
 
 A fast, lightweight QR code generation API built with [Cloudflare Workers](https://workers.cloudflare.com/) and [Hono](https://hono.dev/).
 
+## Deployment
+
+[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/mugifly/cf-qrcode-gen-api)
+
 ## Usage
 
 ```
